@@ -1,306 +1,354 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>Rakshita Vijay — CS Engineer, AI/ML</title>
-<meta name="description" content="Rakshita Vijay — Computer Science Engineering undergraduate at BITS Pilani Hyderabad. Building graph ML systems, multi-agent AI pipelines, and full-stack tools." />
-<link rel="icon" href="data:,">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Rakshita Vijay - CS Engineer, AI/ML</title>
+  <meta name="description"
+    content="Rakshita Vijay - Computer Science Engineering undergraduate at BITS Pilani Hyderabad. Building graph ML systems, multi-agent AI pipelines, and full-stack tools." />
+  <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
-<button id="themeToggle" class="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
-  <svg class="icon-sun" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M12 4.5a1 1 0 0 1-1-1V2a1 1 0 1 1 2 0v1.5a1 1 0 0 1-1 1Zm0 17a1 1 0 0 1 1 1V24a1 1 0 1 1-2 0v-1.5a1 1 0 0 1 1-1ZM4.5 12a1 1 0 0 1-1 1H2a1 1 0 1 1 0-2h1.5a1 1 0 0 1 1 1Zm17 0a1 1 0 0 1 1-1H24a1 1 0 1 1 0 2h-1.5a1 1 0 0 1-1-1ZM6.3 6.3a1 1 0 0 1-1.4 0L3.8 5.2a1 1 0 1 1 1.4-1.4l1.1 1.1a1 1 0 0 1 0 1.4Zm12.7 12.7a1 1 0 0 1-1.4 0l-1.1-1.1a1 1 0 1 1 1.4-1.4l1.1 1.1a1 1 0 0 1 0 1.4ZM6.3 17.7l-1.1 1.1a1 1 0 1 1-1.4-1.4l1.1-1.1a1 1 0 1 1 1.4 1.4Zm12.7-12.7-1.1 1.1a1 1 0 1 1-1.4-1.4l1.1-1.1a1 1 0 0 1 1.4 1.4ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Z"/></svg>
-  <svg class="icon-moon" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M20.8 14.5a9 9 0 1 1-11.3-11.3.7.7 0 0 1 .9.9A7.2 7.2 0 0 0 19.9 13.6a.7.7 0 0 1 .9.9Z"/></svg>
-</button>
+  <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
+    <svg class="icon-sun" viewBox="0 0 24 24" width="16" height="16">
+      <path fill="currentColor"
+        d="M12 4.5a1 1 0 0 1-1-1V2a1 1 0 1 1 2 0v1.5a1 1 0 0 1-1 1Zm0 17a1 1 0 0 1 1 1V24a1 1 0 1 1-2 0v-1.5a1 1 0 0 1 1-1ZM4.5 12a1 1 0 0 1-1 1H2a1 1 0 1 1 0-2h1.5a1 1 0 0 1 1 1Zm17 0a1 1 0 0 1 1-1H24a1 1 0 1 1 0 2h-1.5a1 1 0 0 1-1-1ZM6.3 6.3a1 1 0 0 1-1.4 0L3.8 5.2a1 1 0 1 1 1.4-1.4l1.1 1.1a1 1 0 0 1 0 1.4Zm12.7 12.7a1 1 0 0 1-1.4 0l-1.1-1.1a1 1 0 1 1 1.4-1.4l1.1 1.1a1 1 0 0 1 0 1.4ZM6.3 17.7l-1.1 1.1a1 1 0 1 1-1.4-1.4l1.1-1.1a1 1 0 1 1 1.4 1.4Zm12.7-12.7-1.1 1.1a1 1 0 1 1-1.4-1.4l1.1-1.1a1 1 0 0 1 1.4 1.4ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Z" />
+    </svg>
+    <svg class="icon-moon" viewBox="0 0 24 24" width="16" height="16">
+      <path fill="currentColor"
+        d="M20.8 14.5a9 9 0 1 1-11.3-11.3.7.7 0 0 1 .9.9A7.2 7.2 0 0 0 19.9 13.6a.7.7 0 0 1 .9.9Z" />
+    </svg>
+  </button>
 
-<div class="wrap">
+  <div class="wrap">
 
-  <!-- ===== Sidebar ===== -->
-  <aside class="sidebar">
-    <div class="sidebar-inner">
+    <!-- ===== Sidebar ===== -->
+    <aside class="sidebar">
+      <div class="sidebar-inner">
 
-      <div class="id-block">
-        <img class="avatar" src="assets/rakshita.png" alt="Rakshita Vijay" width="88" height="88">
-        <h1 class="name">Rakshita Vijay</h1>
-        <p class="tagline">Threading systems together, one dependency graph at a time.</p>
-      </div>
-
-      <div class="meta-list">
-        <div class="meta-row">
-          <span class="meta-label">Now</span>
-          <span class="meta-value">SWE Intern, Azure Data&nbsp;Migration @ Microsoft</span>
+        <div class="id-block">
+          <img class="avatar" src="assets/rakshita.png" alt="Rakshita Vijay" width="88" height="88">
+          <h1 class="name">Rakshita Vijay</h1>
+          <p class="tagline">Threading systems together, one dependency graph at a time.</p>
         </div>
-        <div class="meta-row">
-          <span class="meta-label">Based</span>
-          <span class="meta-value">Hyderabad, India</span>
-        </div>
-        <div class="meta-row">
-          <span class="meta-label">Studying</span>
-          <span class="meta-value">B.E. CSE, BITS Pilani &mdash; '27</span>
-        </div>
-        <div class="meta-row">
-          <span class="meta-label">Reach</span>
-          <a class="meta-value link" href="mailto:f20232010@hyderabad.bits-pilani.ac.in">f20232010@hyderabad.bits&#8209;pilani.ac.in</a>
-        </div>
-      </div>
 
-      <div class="social-row">
-        <a href="https://github.com/rakshita-vijay" class="social-btn" aria-label="GitHub">
-          <svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58l-.01-2.23c-3.34.73-4.04-1.42-4.04-1.42-.55-1.38-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49.99.11-.78.42-1.3.76-1.6-2.66-.3-5.47-1.34-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.53.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.6-2.81 5.62-5.49 5.92.43.37.81 1.1.81 2.22l-.01 3.29c0 .32.22.7.83.58A12 12 0 0 0 12 .5Z"/></svg>
-          <span>GitHub</span>
+        <div class="meta-list">
+          <div class="meta-row">
+            <span class="meta-label">Now</span>
+            <span class="meta-value">SWE Intern, Azure Data&nbsp;Migration @ Microsoft</span>
+          </div>
+          <div class="meta-row">
+            <span class="meta-label">Based</span>
+            <span class="meta-value">Hyderabad, India</span>
+          </div>
+          <div class="meta-row">
+            <span class="meta-label">Studying</span>
+            <span class="meta-value">B.E. CSE, BITS Pilani - '27</span>
+          </div>
+          <div class="meta-row">
+            <span class="meta-label">Reach</span>
+            <a class="meta-value link"
+              href="mailto:f20232010@hyderabad.bits-pilani.ac.in">f20232010@hyderabad.bits&#8209;pilani.ac.in</a>
+          </div>
+        </div>
+
+        <div class="social-row">
+          <a href="https://github.com/rakshita-vijay" class="social-btn" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" width="16" height="16">
+              <path fill="currentColor"
+                d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58l-.01-2.23c-3.34.73-4.04-1.42-4.04-1.42-.55-1.38-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49.99.11-.78.42-1.3.76-1.6-2.66-.3-5.47-1.34-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.53.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.6-2.81 5.62-5.49 5.92.43.37.81 1.1.81 2.22l-.01 3.29c0 .32.22.7.83.58A12 12 0 0 0 12 .5Z" />
+            </svg>
+            <span>GitHub</span>
+          </a>
+          <a href="https://www.linkedin.com/in/rakshita-vijay/" class="social-btn" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" width="16" height="16">
+              <path fill="currentColor"
+                d="M20.45 20.45h-3.56v-5.58c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45Z" />
+            </svg>
+            <span>LinkedIn</span>
+          </a>
+        </div>
+
+        <nav class="side-nav" aria-label="Section navigation">
+          <a href="#about" class="nav-link" data-nav>About</a>
+          <a href="#education" class="nav-link" data-nav>Education</a>
+          <a href="#stack" class="nav-link" data-nav>Stack</a>
+          <a href="#experience" class="nav-link" data-nav>Experience</a>
+          <a href="#projects" class="nav-link" data-nav>Projects</a>
+          <a href="#leadership" class="nav-link" data-nav>Leadership</a>
+          <a href="#extras" class="nav-link" data-nav>Talks &amp; Workshops</a>
+        </nav>
+
+        <a class="resume-btn" href="resume.pdf" target="_blank" rel="noopener">
+          <span>Download resume</span>
+          <svg viewBox="0 0 24 24" width="14" height="14">
+            <path fill="currentColor"
+              d="M12 3a1 1 0 0 1 1 1v9.59l3.3-3.3a1 1 0 1 1 1.4 1.42l-5 5a1 1 0 0 1-1.4 0l-5-5a1 1 0 1 1 1.4-1.42l3.3 3.3V4a1 1 0 0 1 1-1ZM5 19a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H6a1 1 0 0 1-1-1Z" />
+          </svg>
         </a>
-        <a href="https://www.linkedin.com/in/rakshita-vijay/" class="social-btn" aria-label="LinkedIn">
-          <svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.58c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg>
-          <span>LinkedIn</span>
-        </a>
+
       </div>
+    </aside>
 
-      <nav class="side-nav" aria-label="Section navigation">
-        <a href="#about" class="nav-link" data-nav>About</a>
-        <a href="#education" class="nav-link" data-nav>Education</a>
-        <a href="#stack" class="nav-link" data-nav>Stack</a>
-        <a href="#experience" class="nav-link" data-nav>Experience</a>
-        <a href="#projects" class="nav-link" data-nav>Projects</a>
-        <a href="#leadership" class="nav-link" data-nav>Leadership</a>
-        <a href="#extras" class="nav-link" data-nav>Talks &amp; Workshops</a>
-      </nav>
+    <!-- ===== Main ===== -->
+    <main class="main">
 
-      <a class="resume-btn" href="resume.pdf" target="_blank" rel="noopener">
-        <span>Download resume</span>
-        <svg viewBox="0 0 24 24" width="14" height="14"><path fill="currentColor" d="M12 3a1 1 0 0 1 1 1v9.59l3.3-3.3a1 1 0 1 1 1.4 1.42l-5 5a1 1 0 0 1-1.4 0l-5-5a1 1 0 1 1 1.4-1.42l3.3 3.3V4a1 1 0 0 1 1-1ZM5 19a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H6a1 1 0 0 1-1-1Z"/></svg>
-      </a>
+      <div class="graph-hero" aria-hidden="true"></div>
 
-    </div>
-  </aside>
-
-  <!-- ===== Main ===== -->
-  <main class="main">
-
-    <div class="graph-hero" aria-hidden="true"></div>
-
-    <section id="about" class="section">
-      <h2 class="section-title"><span class="section-eyebrow">01</span>About</h2>
-      <div class="prose">
-        <p>I'm a third-year Computer Science Engineering student at BITS Pilani, Hyderabad, with a habit of picking projects apart down to the data structure underneath &mdash; whether that's a dependency graph deciding the order database objects get migrated in, or a function-call graph deciding whether an Android app is malicious.</p>
-        <p>Most recently I was a Software Engineering Intern on Microsoft's Azure Data Migration team, where I extended an AI-assisted schema-conversion pipeline to handle SQL Server as a source: a topological chunk scheduler, a hybrid regex-plus-LLM translation router, and a fault-tolerant compile-and-retry loop that got ~97% of chunks converting without manual intervention. Before that, at CultureVo, I built a multi-agent conversational AI toolkit spanning six personas and four languages.</p>
-        <p>Outside of internships, I build full-stack tools end to end &mdash; a finance tracker with a multi-agent CrewAI insight pipeline, a project-tagging workspace on Next.js and Supabase, an async research-and-ideation pipeline that cut a team's turnaround from five days to one sitting. I also tutor project-based CS for Blue Robins, and design curricula that go from Norman's model of affordances down to a working neural network by week three.</p>
-        <p>When I'm not at a keyboard, I'm usually working a crochet or knitting pattern &mdash; a different kind of graph traversal &mdash; or reading up on markets, with a healthy amount of skepticism about how much trading should actually make up a portfolio.</p>
-      </div>
-    </section>
-
-    <section id="education" class="section">
-      <h2 class="section-title"><span class="section-eyebrow">02</span>Education</h2>
-      <div class="entry">
-        <div class="entry-head">
-          <h3>BITS Pilani, Hyderabad Campus</h3>
-          <span class="entry-period">2023 — 2027</span>
+      <section id="about" class="section">
+        <h2 class="section-title"><span class="section-eyebrow">01</span>About</h2>
+        <div class="prose">
+          <p>I'm a third-year Computer Science Engineering student at BITS Pilani, Hyderabad, with a habit of picking
+            projects apart down to the data structure underneath - whether that's a dependency graph deciding the
+            order database objects get migrated in, or a function-call graph deciding whether an Android app is
+            malicious.</p>
+          <p>Most recently I was a Software Engineering Intern on Microsoft's Azure Data Migration team, where I
+            extended an AI-assisted schema-conversion pipeline to handle SQL Server as a source: a topological chunk
+            scheduler, a hybrid regex-plus-LLM translation router, and a fault-tolerant compile-and-retry loop that got
+            ~97% of chunks converting without manual intervention. Before that, at CultureVo, I built a multi-agent
+            conversational AI toolkit spanning six personas and four languages.</p>
+          <p>Outside of internships, I prompt-engineer AI-driven tools end to end - a finance tracker with a
+            multi-agent CrewAI insight pipeline, a project-tagging workspace on Next.js and Supabase, an async
+            research-and-ideation pipeline that cut a team's turnaround from five days to one sitting.</p>
+          <p>When I'm not at a keyboard, I'm usually working a crochet or knitting pattern - a different kind of
+            graph traversal - or buried in a novel, mystery and/or fantasy being my usual picks.</p>
         </div>
-        <p class="entry-sub">B.E. Computer Science Engineering &middot; CGPA 8.64</p>
-        <div class="tag-row">
-          <span class="tag">Operating Systems</span>
-          <span class="tag">Computer Networks</span>
-          <span class="tag">Database Systems</span>
-          <span class="tag">DSA</span>
-          <span class="tag">OOP</span>
-          <span class="tag">Digital Design</span>
-          <span class="tag">Microprocessors</span>
-          <span class="tag">Cryptography</span>
-          <span class="tag">Deep Learning</span>
-          <span class="tag">HCI</span>
+      </section>
+
+      <section id="education" class="section">
+        <h2 class="section-title"><span class="section-eyebrow">02</span>Education</h2>
+        <div class="entry">
+          <div class="entry-head">
+            <h3>BITS Pilani, Hyderabad Campus</h3>
+            <span class="entry-period">2023 - 2027</span>
+          </div>
+          <p class="entry-sub">B.E. Computer Science Engineering &middot; CGPA 8.64</p>
+          <div class="tag-row">
+            <span class="tag">Operating Systems</span>
+            <span class="tag">Computer Networks</span>
+            <span class="tag">Database Systems</span>
+            <span class="tag">DSA</span>
+            <span class="tag">OOP</span>
+            <span class="tag">Digital Design</span>
+            <span class="tag">Microprocessors</span>
+            <span class="tag">Cryptography</span>
+            <span class="tag">Deep Learning</span>
+            <span class="tag">HCI</span>
+          </div>
         </div>
-      </div>
-      <div class="entry">
-        <div class="entry-head">
-          <h3>St. John's Public School</h3>
-          <span class="entry-period">Class XII &middot; 2023</span>
+        <div class="entry">
+          <div class="entry-head">
+            <h3>St. John's Public School</h3>
+            <span class="entry-period">Class XII &middot; 2023</span>
+          </div>
+          <p class="entry-sub">CBSE &middot; 94.2%</p>
         </div>
-        <p class="entry-sub">CBSE &middot; 94.2%</p>
-      </div>
-      <div class="entry">
-        <div class="entry-head">
-          <h3>Chettinad Vidyashram</h3>
-          <span class="entry-period">Class X &middot; 2021</span>
+        <div class="entry">
+          <div class="entry-head">
+            <h3>Chettinad Vidyashram</h3>
+            <span class="entry-period">Class X &middot; 2021</span>
+          </div>
+          <p class="entry-sub">CBSE &middot; 95.8%</p>
         </div>
-        <p class="entry-sub">CBSE &middot; 95.8%</p>
-      </div>
-    </section>
+      </section>
 
-    <section id="stack" class="section">
-      <h2 class="section-title"><span class="section-eyebrow">03</span>Stack</h2>
-      <div class="stack-grid">
-        <span class="stack-chip">Python</span>
-        <span class="stack-chip">C++</span>
-        <span class="stack-chip">C</span>
-        <span class="stack-chip">Java</span>
-        <span class="stack-chip">SQL</span>
-        <span class="stack-chip">PyTorch</span>
-        <span class="stack-chip">Next.js</span>
-        <span class="stack-chip">React</span>
-        <span class="stack-chip">Supabase</span>
-        <span class="stack-chip">Vercel</span>
-        <span class="stack-chip">CrewAI</span>
-        <span class="stack-chip">Gemini API</span>
-        <span class="stack-chip">Prompt Engineering</span>
-        <span class="stack-chip">Git</span>
-      </div>
-    </section>
-
-    <section id="experience" class="section">
-      <h2 class="section-title"><span class="section-eyebrow">04</span>Experience</h2>
-
-      <article class="entry">
-        <div class="entry-head">
-          <h3>Microsoft &mdash; Azure Data Migration Team</h3>
-          <span class="entry-period">May 2026 — Jul 2026</span>
+      <section id="stack" class="section">
+        <h2 class="section-title"><span class="section-eyebrow">03</span>Stack</h2>
+        <div class="stack-grid">
+          <span class="stack-chip">Python</span>
+          <span class="stack-chip">C++</span>
+          <span class="stack-chip">C</span>
+          <span class="stack-chip">Java</span>
+          <span class="stack-chip">SQL</span>
+          <span class="stack-chip">PyTorch</span>
+          <span class="stack-chip">Next.js</span>
+          <span class="stack-chip">React</span>
+          <span class="stack-chip">Supabase</span>
+          <span class="stack-chip">Vercel</span>
+          <span class="stack-chip">CrewAI</span>
+          <span class="stack-chip">Gemini API</span>
+          <span class="stack-chip">Prompt Engineering</span>
+          <span class="stack-chip">Git</span>
         </div>
-        <p class="entry-sub">Software Engineering Intern &middot; SQL Server → PostgreSQL Schema Conversion Engine</p>
-        <ul class="bullet-list">
-          <li>Extended an AI-assisted Oracle→PostgreSQL schema-conversion pipeline to support SQL Server as a source, with dialect-aware gating across a 4-stage Extract→Chunk→Convert→Verify pipeline.</li>
-          <li>Built a dependency-aware chunk scheduler on Kahn's Algorithm to topologically order database objects, correctly handling cycles and self-referencing edges while upholding ACID transactionality.</li>
-          <li>Designed a hybrid conversion router splitting mechanical DDL to a regex fast-path and procedural/semantic logic to LLM translation, sharing a canonical identifier map across both paths.</li>
-          <li>Built a fault-tolerant compile-and-retry loop with auto-retry from compile-error feedback &mdash; ~97% of chunks converged without manual intervention.</li>
-          <li>Stress-tested against Northwind, AdventureWorks, WideWorldImporters, and a custom 7-schema database: ~98% of in-scope objects across 45+ chunks (600+ objects), cutting runtime from ~4 hours to 35–45 minutes.</li>
-        </ul>
-      </article>
+      </section>
 
-      <article class="entry">
-        <div class="entry-head">
-          <h3>CultureVo</h3>
-          <span class="entry-period">May 2025 — Jul 2025</span>
-        </div>
-        <p class="entry-sub">Summer Intern &middot; Conversational AI Tools</p>
-        <ul class="bullet-list">
-          <li>Built PersonaBot, a configurable multi-agent orchestration toolkit with a state-managed persona system spanning 6 profiles and 10 customizable traits.</li>
-          <li>Implemented persistent, multi-session conversation state across four languages (English, Sinhala, Tamil, Hindi), enabling bulk generation of 100+ Q&amp;A pairs.</li>
-        </ul>
-      </article>
+      <section id="experience" class="section">
+        <h2 class="section-title"><span class="section-eyebrow">04</span>Experience</h2>
 
-      <article class="entry">
-        <div class="entry-head">
-          <h3>Blue Robins</h3>
-          <span class="entry-period">Starting [MONTH YEAR] &middot; part-time</span>
-        </div>
-        <p class="entry-sub">Tutor &middot; Project-Based CS Education (Grades 3–12, US students)</p>
-        <ul class="bullet-list">
-          <li>Design project-based software curricula across grade bands, from lightweight app ideas to mentor-led builds in ray tracing, Naive Bayes, pathfinding, and neural networks.</li>
-          <li>Grounded a Universal Access Engine curriculum in HCI theory &mdash; Norman's model, affordances, universal design &mdash; structured as theory-heavy sessions feeding a 3-week build phase.</li>
-        </ul>
-      </article>
-    </section>
+        <article class="entry">
+          <div class="entry-head">
+            <h3>Microsoft - Azure Data Migration Team</h3>
+            <span class="entry-period">May 2026 - Jul 2026</span>
+          </div>
+          <p class="entry-sub">Software Engineering Intern &middot; SQL Server → PostgreSQL Schema Conversion Engine</p>
+          <ul class="bullet-list">
+            <li>Extended an AI-assisted Oracle→PostgreSQL schema-conversion pipeline to support SQL Server as a source,
+              with dialect-aware gating across a 4-stage Extract→Chunk→Convert→Verify pipeline.</li>
+            <li>Built a dependency-aware chunk scheduler on Kahn's Algorithm to topologically order database objects,
+              correctly handling cycles and self-referencing edges while upholding ACID transactionality.</li>
+            <li>Designed a hybrid conversion router splitting mechanical DDL to a regex fast-path and
+              procedural/semantic logic to LLM translation, sharing a canonical identifier map across both paths.</li>
+            <li>Built a fault-tolerant compile-and-retry loop with auto-retry from compile-error feedback - ~97%
+              of chunks converged without manual intervention.</li>
+            <li>Stress-tested against Northwind, AdventureWorks, WideWorldImporters, and a custom 7-schema database:
+              ~98% of in-scope objects across 45+ chunks (600+ objects), cutting runtime from ~4 hours to 35–45 minutes.
+            </li>
+          </ul>
+        </article>
 
-    <section id="projects" class="section">
-      <h2 class="section-title"><span class="section-eyebrow">05</span>Projects</h2>
+        <article class="entry">
+          <div class="entry-head">
+            <h3>CultureVo</h3>
+            <span class="entry-period">May 2025 - Jul 2025</span>
+          </div>
+          <p class="entry-sub">Summer Intern &middot; Conversational AI Tools</p>
+          <ul class="bullet-list">
+            <li>Built PersonaBot, a configurable multi-agent orchestration toolkit with a state-managed persona system
+              spanning 6 profiles and 10 customizable traits.</li>
+            <li>Implemented persistent, multi-session conversation state across four languages (English, Sinhala, Tamil,
+              Hindi), enabling bulk generation of 100+ Q&amp;A pairs.</li>
+          </ul>
+        </article>
 
-      <article class="entry">
-        <div class="entry-head">
-          <h3>Android Malware Detection with GNNs</h3>
-          <span class="entry-period">Jan 2026 — May 2026</span>
-        </div>
-        <p class="entry-sub">Cybersecurity &middot; Graph ML</p>
-        <ul class="bullet-list">
-          <li>Built an end-to-end malware classification pipeline extracting Function Call Graphs via Androguard and training GraphSAGE models to distinguish benign from malicious Android apps.</li>
-          <li>Designed an API-aware, structure-preserving graph pruning technique that removes low-signal non-API methods via weighted edge rewiring.</li>
-          <li>Integrated pretrained Skip-Gram node embeddings with checkpoint-based training for resumable HPC runs.</li>
-          <li>Achieved a 94.39% F1-score and 92.41% accuracy on an imbalanced dataset of 150K benign and 50K malicious samples.</li>
-        </ul>
-        <div class="tag-row"><span class="tag">GraphSAGE</span><span class="tag">Androguard</span><span class="tag">PyTorch</span></div>
-      </article>
+      </section>
 
-      <article class="entry">
-        <div class="entry-head">
-          <h3>Finance Tracker &amp; Analyser</h3>
-          <span class="entry-period">Jun 2025 — Jul 2025</span>
-        </div>
-        <p class="entry-sub">AI-Driven Financial Analytics</p>
-        <ul class="bullet-list">
-          <li>Designed a multi-format analysis and report-generation service backed by a 2-agent pipeline for automated insight generation, since restored to a fuller multi-agent CrewAI pipeline with live per-stage timers.</li>
-          <li>Implemented real-time budget tracking with configurable spending categories and an AI-driven recovery-strategy module.</li>
-          <li>Built a rules-based anomaly-detection service that flags inconsistencies in uploaded statement data.</li>
-        </ul>
-        <div class="tag-row"><span class="tag">Next.js</span><span class="tag">CrewAI</span><span class="tag">Vercel</span></div>
-      </article>
+      <section id="projects" class="section">
+        <h2 class="section-title"><span class="section-eyebrow">05</span>Projects</h2>
 
-      <article class="entry">
-        <div class="entry-head">
-          <h3>Automated Research &amp; Ideation Pipeline</h3>
-          <span class="entry-period">Jun 2025</span>
-        </div>
-        <p class="entry-sub">Multi-Agent Systems &middot; Async Automation</p>
-        <ul class="bullet-list">
-          <li>Designed a 5-agent orchestration workflow automating topic selection, research, and outline generation with shared agent state.</li>
-          <li>Implemented concurrent agents over Python asyncio to generate 7 niche titles per theme, each with sourced research summaries and outline guides.</li>
-          <li>Cut research-and-ideation turnaround by ~80% (5 days → 1 session); adopted as the team's standard ideation tool.</li>
-        </ul>
-        <div class="tag-row"><span class="tag">Python</span><span class="tag">asyncio</span><span class="tag">Multi-Agent</span></div>
-      </article>
+        <article class="entry">
+          <div class="entry-head">
+            <h3>Android Malware Detection with GNNs</h3>
+            <span class="entry-period">Jan 2026 - May 2026</span>
+          </div>
+          <p class="entry-sub">Cybersecurity &middot; Graph ML</p>
+          <ul class="bullet-list">
+            <li>Built an end-to-end malware classification pipeline extracting Function Call Graphs via Androguard and
+              training GraphSAGE models to distinguish benign from malicious Android apps.</li>
+            <li>Designed an API-aware, structure-preserving graph pruning technique that removes low-signal non-API
+              methods via weighted edge rewiring.</li>
+            <li>Integrated pretrained Skip-Gram node embeddings with checkpoint-based training for resumable HPC runs.
+            </li>
+            <li>Achieved a 94.39% F1-score and 92.41% accuracy on an imbalanced dataset of 150K benign and 50K malicious
+              samples.</li>
+          </ul>
+          <div class="tag-row"><span class="tag">GraphSAGE</span><span class="tag">Androguard</span><span
+              class="tag">PyTorch</span></div>
+        </article>
 
-      <article class="entry">
-        <div class="entry-head">
-          <h3>Tag Atlas</h3>
-          <span class="entry-period">Personal project</span>
-        </div>
-        <p class="entry-sub">Project write-up storage &amp; tagging tool</p>
-        <ul class="bullet-list">
-          <li>Sidebar-plus-detail-panel workspace for storing and tagging project write-ups, with tag-based similarity ranking and an archive flow.</li>
-          <li>AI-assisted tag suggestions via Gemini, password auth, and bulk project-insertion tooling.</li>
-        </ul>
-        <div class="tag-row"><span class="tag">Next.js</span><span class="tag">Supabase</span><span class="tag">Gemini</span></div>
-      </article>
-    </section>
+        <article class="entry">
+          <div class="entry-head">
+            <h3>Finance Tracker &amp; Analyser</h3>
+            <span class="entry-period">Jun 2025 - Jul 2025</span>
+          </div>
+          <p class="entry-sub">AI-Driven Financial Analytics</p>
+          <ul class="bullet-list">
+            <li>Designed a multi-format analysis and report-generation service backed by a 2-agent pipeline for
+              automated insight generation, since restored to a fuller multi-agent CrewAI pipeline with live per-stage
+              timers.</li>
+            <li>Implemented real-time budget tracking with configurable spending categories and an AI-driven
+              recovery-strategy module.</li>
+            <li>Built a rules-based anomaly-detection service that flags inconsistencies in uploaded statement data.
+            </li>
+          </ul>
+          <div class="tag-row"><span class="tag">Next.js</span><span class="tag">CrewAI</span><span
+              class="tag">Vercel</span></div>
+        </article>
 
-    <section id="leadership" class="section">
-      <h2 class="section-title"><span class="section-eyebrow">06</span>Leadership</h2>
+        <article class="entry">
+          <div class="entry-head">
+            <h3>Automated Research &amp; Ideation Pipeline</h3>
+            <span class="entry-period">Jun 2025</span>
+          </div>
+          <p class="entry-sub">Multi-Agent Systems &middot; Async Automation</p>
+          <ul class="bullet-list">
+            <li>Designed a 5-agent orchestration workflow automating topic selection, research, and outline generation
+              with shared agent state.</li>
+            <li>Implemented concurrent agents over Python asyncio to generate 7 niche titles per theme, each with
+              sourced research summaries and outline guides.</li>
+            <li>Cut research-and-ideation turnaround by ~80% (5 days → 1 session); adopted as the team's standard
+              ideation tool.</li>
+          </ul>
+          <div class="tag-row"><span class="tag">Python</span><span class="tag">asyncio</span><span
+              class="tag">Multi-Agent</span></div>
+        </article>
 
-      <article class="entry">
-        <div class="entry-head">
-          <h3>ACM — BPHC Chapter</h3>
-          <span class="entry-period">Nov 2024 — Jul 2026</span>
-        </div>
-        <p class="entry-sub">Content &amp; Research Team Co-Lead, Junior Office &amp; Chair, Senior Office</p>
-        <ul class="bullet-list">
-          <li>Authored 5+ technical articles for the ACM BPHC Blog and The BITSian Gazette (Aug–Nov '24 edition).</li>
-          <li>Coordinated logistics as Point of Contact for 4 tech events, including a coding workshop for 70+ indigent students.</li>
-        </ul>
-      </article>
+        <article class="entry">
+          <div class="entry-head">
+            <h3>Tag Atlas</h3>
+            <span class="entry-period">Personal project</span>
+          </div>
+          <p class="entry-sub">Project write-up storage &amp; tagging tool</p>
+          <ul class="bullet-list">
+            <li>Sidebar-plus-detail-panel workspace for storing and tagging project write-ups, with tag-based similarity
+              ranking and an archive flow.</li>
+            <li>AI-assisted tag suggestions via Gemini, password auth, and bulk project-insertion tooling.</li>
+          </ul>
+          <div class="tag-row"><span class="tag">Next.js</span><span class="tag">Supabase</span><span
+              class="tag">Gemini</span></div>
+        </article>
+      </section>
 
-      <article class="entry">
-        <div class="entry-head">
-          <h3>ELAS, BPHC</h3>
-          <span class="entry-period">Dec 2024 — Jan 2025</span>
-        </div>
-        <p class="entry-sub">ARG Team Lead, Verba Maximus '25</p>
-        <ul class="bullet-list">
-          <li>Led a 13-member team to design and execute a 6-hour event that drew 125+ participants &mdash; the highest-footfall headliner event at VM '25.</li>
-        </ul>
-      </article>
-    </section>
+      <section id="leadership" class="section">
+        <h2 class="section-title"><span class="section-eyebrow">06</span>Leadership</h2>
 
-    <section id="extras" class="section">
-      <h2 class="section-title"><span class="section-eyebrow">07</span>Talks &amp; Workshops</h2>
-      <article class="entry">
-        <div class="entry-head">
-          <h3>Introduction to Machine Learning</h3>
-          <span class="entry-period">Aug 2025</span>
-        </div>
-        <p class="entry-sub">Organized by ACM — BPHC Chapter</p>
-        <ul class="bullet-list">
-          <li>Co-hosted a 250+ attendee workshop covering supervised/unsupervised learning, regression, neural networks, and activation functions with live coding.</li>
-        </ul>
-      </article>
-    </section>
+        <article class="entry">
+          <div class="entry-head">
+            <h3>ACM - BPHC Chapter</h3>
+            <span class="entry-period">Nov 2024 - Jul 2026</span>
+          </div>
+          <p class="entry-sub">Content &amp; Research Team Co-Lead, Junior Office &amp; Chair, Senior Office</p>
+          <ul class="bullet-list">
+            <li>Authored 5+ technical articles for the ACM BPHC Blog and The BITSian Gazette (Aug–Nov '24 edition).</li>
+            <li>Coordinated logistics as Point of Contact for 4 tech events, including a coding workshop for 70+
+              indigent students.</li>
+          </ul>
+        </article>
 
-    <footer class="footer">
-      <p>Built with Next.js &middot; deployed on Vercel &middot; last updated 2026.</p>
-    </footer>
+        <article class="entry">
+          <div class="entry-head">
+            <h3>ELAS, BPHC</h3>
+            <span class="entry-period">Dec 2024 - Jan 2025</span>
+          </div>
+          <p class="entry-sub">ARG Team Lead, Verba Maximus '25</p>
+          <ul class="bullet-list">
+            <li>Led a 13-member team to design and execute a 6-hour event that drew 125+ participants - the
+              highest-footfall headliner event at VM '25.</li>
+          </ul>
+        </article>
+      </section>
 
-  </main>
-</div>
+      <section id="extras" class="section">
+        <h2 class="section-title"><span class="section-eyebrow">07</span>Talks &amp; Workshops</h2>
+        <article class="entry">
+          <div class="entry-head">
+            <h3>Introduction to Machine Learning</h3>
+            <span class="entry-period">Aug 2025</span>
+          </div>
+          <p class="entry-sub">Organized by ACM - BPHC Chapter</p>
+          <ul class="bullet-list">
+            <li>Co-hosted a 250+ attendee workshop covering supervised/unsupervised learning, regression, neural
+              networks, and activation functions with live coding.</li>
+          </ul>
+        </article>
+      </section>
 
-<script src="script.js"></script>
+      <footer class="footer">
+        <p>Built with Next.js &middot; deployed on Vercel &middot; last updated 2026.</p>
+      </footer>
+
+    </main>
+  </div>
+
+  <script src="script.js"></script>
 </body>
+
 </html>
