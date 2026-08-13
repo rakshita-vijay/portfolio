@@ -35,10 +35,14 @@ Then on vercel.com → **Add New Project** → import the repo → Framework Pre
 - Swap `assets/rakshita.png` for a higher-res photo if you have one — the one here was pulled straight out of the resume PDF at 200×200.
 
 ## Use in venv
-`python3 -m venv .venv`
-`source .venv/bin/activate`
-`python --version`
-`which python`      # macOS/Linux
-<!-- `where python`      # Windows -->
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python3 --version
+which python3      # macOS/Linux
+# where python      # Windows
 
-`deactivate`
+python -m pip install -r requirements.txt
+
+deactivate
+```

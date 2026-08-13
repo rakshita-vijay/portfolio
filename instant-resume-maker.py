@@ -89,10 +89,11 @@ PREAMBLE = r"""\documentclass[10pt,letterpaper]{article}
 \usepackage[T1]{fontenc}
 \pagestyle{empty}
 \setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
 \definecolor{linkcol}{HTML}{1a4480}
 \hypersetup{colorlinks=true, urlcolor=linkcol}
 \titleformat{\section}{\large\bfseries}{}{0pt}{}[\vspace{-2pt}\titlerule]
-\titlespacing{\section}{0pt}{8pt}{4pt}
+\titlespacing{\section}{0pt}{0pt}{4pt}
 \newcommand{\head}[2]{{\bfseries #1} \hfill {\itshape #2}\\}
 \newcommand{\subline}[1]{{\itshape #1}\\[2pt]}
 \setlist[itemize]{leftmargin=14pt, itemsep=1pt, topsep=2pt, parsep=0pt}
@@ -111,10 +112,11 @@ def entries_section(title, entries):
         if e["sub"]:
             out.append(r"\subline{%s}" % esc(e["sub"]))
         if e["bullets"]:
+            out.append(r"\vspace{-8pt}")
             out.append(r"\begin{itemize}")
             out += [r"\item " + esc(b) for b in e["bullets"]]
             out.append(r"\end{itemize}")
-        out.append(r"\vspace{2pt}")
+        out.append(r"\par\vspace{9pt}")
     return out
 
 def build_tex(d):
@@ -136,8 +138,10 @@ def build_tex(d):
 
     if d["about"]:
         L.append(r"\section*{About}")
-        for p in d["about"]:
-            L.append(esc(p) + r"\\[3pt]")
+        for i, p in enumerate(d["about"]):
+            sep = r"\\[3pt]" if i < len(d["about"]) - 1 else r"\\"
+            L.append(esc(p) + sep)
+        L.append(r"\par\vspace{-5pt}")
 
     if d["education"]:
         L.append(r"\section*{Education}")
@@ -145,10 +149,12 @@ def build_tex(d):
             L.append(r"\head{%s}{%s}" % (esc(e["title"]), esc(e["period"])))
             if e["sub"]:
                 L.append(esc(e["sub"]) + r"\\[2pt]")
+            L.append(r"\par\vspace{-5pt}")
 
     if d["stack"]:
         L.append(r"\section*{Technical Skills}")
         L.append(esc(", ".join(d["stack"])))
+        L.append(r"\par\vspace{9pt}")
 
     L += entries_section("Experience", d["experience"])
     L += entries_section("Projects", d["projects"])
