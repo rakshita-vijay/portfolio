@@ -11,7 +11,7 @@
     root.setAttribute("data-theme", effectiveTheme(mode));
     localStorage.setItem("theme", mode);
   }
-  applyTheme(localStorage.getItem("theme") || "auto");
+  applyTheme(localStorage.getItem("theme") || "dark");
 
   media.addEventListener("change", function () {
     if (localStorage.getItem("theme") === "auto") applyTheme("auto");
