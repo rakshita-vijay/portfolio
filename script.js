@@ -188,6 +188,29 @@
     }
   }
 
+  // ---- photo lightbox ----
+  var avatarBtn = document.getElementById("avatarBtn");
+  var photoLightbox = document.getElementById("photoLightbox");
+  var photoLightboxClose = document.getElementById("photoLightboxClose");
+  if (avatarBtn && photoLightbox) {
+    var openLightbox = function () {
+      photoLightbox.hidden = false;
+      photoLightboxClose.focus();
+    };
+    var closeLightbox = function () {
+      photoLightbox.hidden = true;
+      avatarBtn.focus();
+    };
+    avatarBtn.addEventListener("click", openLightbox);
+    photoLightboxClose.addEventListener("click", closeLightbox);
+    photoLightbox.addEventListener("click", function (e) {
+      if (e.target === photoLightbox) closeLightbox();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && !photoLightbox.hidden) closeLightbox();
+    });
+  }
+
   // ---- scroll to top ----
   var scrollTopBtn = document.getElementById("scrollTop");
   if (scrollTopBtn) {
