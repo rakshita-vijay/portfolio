@@ -4,10 +4,35 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Rakshita Vijay - CS Engineer, AI/ML</title>
+  <title>Rakshita Vijay</title>
   <meta name="description"
     content="Rakshita Vijay - Computer Science Engineering undergraduate at BITS Pilani Hyderabad. Building graph ML systems, multi-agent AI pipelines, and full-stack tools." />
-  <link rel="icon" href="data:,">
+  <link rel="canonical" href="https://rakshita-vijay-portfolio.vercel.app/" />
+
+  <!-- favicon: RV monogram, same gradient as the OG banner -->
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%234A6CF7'/%3E%3Cstop offset='55%25' stop-color='%237B5CF0'/%3E%3Cstop offset='100%25' stop-color='%239B4FE0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='7' fill='%2305060A'/%3E%3Ctext x='16' y='22' font-family='Georgia, serif' font-size='15' font-weight='700' text-anchor='middle' fill='url(%23g)'%3ERV%3C/text%3E%3C/svg%3E" />
+  <link rel="apple-touch-icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%234A6CF7'/%3E%3Cstop offset='55%25' stop-color='%237B5CF0'/%3E%3Cstop offset='100%25' stop-color='%239B4FE0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='7' fill='%2305060A'/%3E%3Ctext x='16' y='22' font-family='Georgia, serif' font-size='15' font-weight='700' text-anchor='middle' fill='url(%23g)'%3ERV%3C/text%3E%3C/svg%3E" />
+
+  <!-- Open Graph / social link previews -->
+  <meta property="og:type" content="profile" />
+  <meta property="og:site_name" content="Rakshita Vijay" />
+  <meta property="og:title" content="Rakshita Vijay - CS Engineer, AI/ML" />
+  <meta property="og:description"
+    content="Computer Science Engineering undergraduate at BITS Pilani Hyderabad. Building graph ML systems, multi-agent AI pipelines, and full-stack tools." />
+  <meta property="og:url" content="https://rakshita-vijay-portfolio.vercel.app/" />
+  <meta property="og:image" content="https://rakshita-vijay-portfolio.vercel.app/assets/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Rakshita Vijay - CS Engineer, AI/ML" />
+  <meta property="profile:first_name" content="Rakshita" />
+  <meta property="profile:last_name" content="Vijay" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Rakshita Vijay - CS Engineer, AI/ML" />
+  <meta name="twitter:description"
+    content="Computer Science Engineering undergraduate at BITS Pilani Hyderabad. Building graph ML systems, multi-agent AI pipelines, and full-stack tools." />
+  <meta name="twitter:image" content="https://rakshita-vijay-portfolio.vercel.app/assets/og-image.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -19,13 +44,42 @@
 <body>
 
   <div class="top-bezel">
-    <a class="resume-pill" href="assets/resume.pdf" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" width="14" height="14">
-        <path fill="currentColor"
-          d="M12 3a1 1 0 0 1 1 1v9.59l3.3-3.3a1 1 0 1 1 1.4 1.42l-5 5a1 1 0 0 1-1.4 0l-5-5a1 1 0 1 1 1.4-1.42l3.3 3.3V4a1 1 0 0 1 1-1ZM5 19a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H6a1 1 0 0 1-1-1Z" />
+    <button id="mobileMenuTrigger" class="mobile-menu-trigger" aria-label="Toggle menu" aria-expanded="false"
+      aria-controls="mobileNav">
+      <svg class="icon-burger" viewBox="0 0 24 24" width="16" height="16">
+        <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16" />
       </svg>
-      <span>Resume</span>
-    </a>
+      <svg class="icon-close" viewBox="0 0 24 24" width="16" height="16">
+        <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M5 5l14 14M19 5 5 19" />
+      </svg>
+    </button>
+
+    <div class="resume-menu-wrap">
+      <button id="resumeMenuTrigger" class="resume-pill" type="button" aria-haspopup="true" aria-expanded="false"
+        aria-controls="resumeMenu" title="Resume &amp; contact card">
+        <svg viewBox="0 0 24 24" width="14" height="14">
+          <path fill="currentColor"
+            d="M12 3a1 1 0 0 1 1 1v9.59l3.3-3.3a1 1 0 1 1 1.4 1.42l-5 5a1 1 0 0 1-1.4 0l-5-5a1 1 0 1 1 1.4-1.42l3.3 3.3V4a1 1 0 0 1 1-1ZM5 19a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H6a1 1 0 0 1-1-1Z" />
+        </svg>
+        <span>Resume</span>
+      </button>
+      <div id="resumeMenu" class="resume-menu" hidden>
+        <a class="resume-menu-item" href="assets/resume.pdf" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="14" height="14">
+            <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              d="M14 3v5a1 1 0 0 0 1 1h5M6 3h8l5 5v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z" />
+          </svg>
+          <span>Download résumé (PDF)</span>
+        </a>
+        <button class="resume-menu-item" id="vcardBtn" type="button">
+          <svg viewBox="0 0 24 24" width="14" height="14">
+            <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              d="M3 6h18v12H3zM3 8l9 6 9-6" />
+          </svg>
+          <span>Save contact (vCard)</span>
+        </button>
+      </div>
+    </div>
 
     <button id="cmdkTrigger" class="cmdk-trigger" aria-label="Open command palette" title="Command palette (⌘K)">
       <span class="cmdk-trigger-label">Search</span>
@@ -45,6 +99,16 @@
     </button>
   </div>
 
+  <nav id="mobileNav" class="mobile-nav" aria-label="Mobile section navigation" hidden>
+    <a href="#about" class="nav-link mobile-nav-link" data-nav>About</a>
+    <a href="#education" class="nav-link mobile-nav-link" data-nav>Education</a>
+    <a href="#stack" class="nav-link mobile-nav-link" data-nav>Stack</a>
+    <a href="#experience" class="nav-link mobile-nav-link" data-nav>Experience</a>
+    <a href="#projects" class="nav-link mobile-nav-link" data-nav>Projects</a>
+    <a href="#leadership" class="nav-link mobile-nav-link" data-nav>Leadership</a>
+    <a href="#extras" class="nav-link mobile-nav-link" data-nav>Talks &amp; Workshops</a>
+  </nav>
+
   <div class="wrap">
 
     <!-- ===== Sidebar ===== -->
@@ -61,7 +125,7 @@
         <div class="meta-list">
           <div class="meta-row">
             <span class="meta-label">Now</span>
-            <span class="meta-value">SWE Intern, Azure Data&nbsp;Migration @ Microsoft</span>
+            <span class="meta-value">Former SWE Intern, Azure Data&nbsp;Migration @ Microsoft</span>
           </div>
           <div class="meta-row">
             <span class="meta-label">Based</span>
@@ -206,7 +270,10 @@
         <article class="entry">
           <div class="entry-head">
             <h3>Microsoft - Azure Data Migration Team</h3>
-            <span class="entry-period">May 2026 - Jul 2026</span>
+            <div class="entry-meta">
+              <span class="entry-type">Internship</span>
+              <span class="entry-period">May 2026 - Jul 2026</span>
+            </div>
           </div>
           <p class="entry-sub">Software Engineering Intern &middot; SQL Server → PostgreSQL Schema Conversion Engine</p>
           <ul class="bullet-list">
@@ -227,7 +294,10 @@
         <article class="entry">
           <div class="entry-head">
             <h3>CultureVo</h3>
-            <span class="entry-period">May 2025 - Jul 2025</span>
+            <div class="entry-meta">
+              <span class="entry-type">Internship</span>
+              <span class="entry-period">May 2025 - Jul 2025</span>
+            </div>
           </div>
           <p class="entry-sub">Summer Intern &middot; Conversational AI Tools</p>
           <ul class="bullet-list">

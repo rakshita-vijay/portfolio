@@ -65,9 +65,128 @@
       link.className = "meta-value link revealed";
       link.textContent = value;
       link.href = kind === "email" ? "mailto:" + value : "tel:" + value;
+      link.setAttribute("data-reveal", kind);
+      link.setAttribute("data-value", value);
       btn.replaceWith(link);
     });
   });
+
+  // ---- utm tracking on outbound links ----
+  function addUtm(url) {
+    try {
+      var u = new URL(url, window.location.href);
+      if (u.origin === window.location.origin) return url; // internal/local asset, leave alone
+      if (!u.searchParams.has("utm_source")) u.searchParams.set("utm_source", "portfolio");
+      if (!u.searchParams.has("utm_medium")) u.searchParams.set("utm_medium", "referral");
+      return u.toString();
+    } catch (e) {
+      return url;
+    }
+  }
+  Array.prototype.slice.call(document.querySelectorAll("a[href^='http']")).forEach(function (a) {
+    a.setAttribute("href", addUtm(a.getAttribute("href")));
+  });
+
+  // ---- mobile hamburger menu ----
+  var mobileMenuTrigger = document.getElementById("mobileMenuTrigger");
+  var mobileNav = document.getElementById("mobileNav");
+  if (mobileMenuTrigger && mobileNav) {
+    var openMobileNav = function () {
+      mobileNav.hidden = false;
+      mobileMenuTrigger.classList.add("open");
+      mobileMenuTrigger.setAttribute("aria-expanded", "true");
+    };
+    var closeMobileNav = function () {
+      mobileNav.hidden = true;
+      mobileMenuTrigger.classList.remove("open");
+      mobileMenuTrigger.setAttribute("aria-expanded", "false");
+    };
+    mobileMenuTrigger.addEventListener("click", function (e) {
+      e.stopPropagation();
+      mobileNav.hidden ? openMobileNav() : closeMobileNav();
+    });
+    Array.prototype.slice.call(mobileNav.querySelectorAll(".mobile-nav-link")).forEach(function (link) {
+      link.addEventListener("click", closeMobileNav);
+    });
+    document.addEventListener("click", function (e) {
+      if (!mobileNav.hidden && !mobileNav.contains(e.target) && !mobileMenuTrigger.contains(e.target)) {
+        closeMobileNav();
+      }
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && !mobileNav.hidden) closeMobileNav();
+    });
+    window.addEventListener("resize", function () {
+      if (window.innerWidth > 860) closeMobileNav();
+    });
+  }
+
+  // ---- resume / vCard dropdown ----
+  function getContactValue(kind) {
+    var el = document.querySelector('[data-reveal="' + kind + '"]');
+    if (!el) return "";
+    return el.getAttribute("data-value") || el.textContent.trim();
+  }
+
+  function downloadVCard() {
+    var email = getContactValue("email");
+    var tel = getContactValue("tel");
+    var lines = [
+      "BEGIN:VCARD",
+      "VERSION:3.0",
+      "N:Vijay;Rakshita;;;",
+      "FN:Rakshita Vijay",
+      "TITLE:CS Engineering Student \u00b7 AI/ML",
+      "ORG:BITS Pilani, Hyderabad Campus",
+      email ? "EMAIL;TYPE=INTERNET:" + email : null,
+      tel ? "TEL;TYPE=CELL:" + tel : null,
+      "URL:https://github.com/rakshita-vijay",
+      "URL:https://www.linkedin.com/in/rakshita-vijay/",
+      "END:VCARD"
+    ].filter(Boolean);
+    var blob = new Blob([lines.join("\r\n")], { type: "text/vcard;charset=utf-8" });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement("a");
+    a.href = url;
+    a.download = "rakshita-vijay.vcf";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+  }
+
+  var resumeMenuTrigger = document.getElementById("resumeMenuTrigger");
+  var resumeMenu = document.getElementById("resumeMenu");
+  var vcardBtn = document.getElementById("vcardBtn");
+
+  if (resumeMenuTrigger && resumeMenu) {
+    var openResumeMenu = function () {
+      resumeMenu.hidden = false;
+      resumeMenuTrigger.setAttribute("aria-expanded", "true");
+    };
+    var closeResumeMenu = function () {
+      resumeMenu.hidden = true;
+      resumeMenuTrigger.setAttribute("aria-expanded", "false");
+    };
+    resumeMenuTrigger.addEventListener("click", function (e) {
+      e.stopPropagation();
+      resumeMenu.hidden ? openResumeMenu() : closeResumeMenu();
+    });
+    document.addEventListener("click", function (e) {
+      if (!resumeMenu.hidden && !resumeMenu.contains(e.target) && !resumeMenuTrigger.contains(e.target)) {
+        closeResumeMenu();
+      }
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && !resumeMenu.hidden) closeResumeMenu();
+    });
+    if (vcardBtn) {
+      vcardBtn.addEventListener("click", function () {
+        downloadVCard();
+        closeResumeMenu();
+      });
+    }
+  }
 
   // ---- scroll to top ----
   var scrollTopBtn = document.getElementById("scrollTop");
@@ -100,7 +219,8 @@
     sun: '<circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 2v2M12 20v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2 12h2M20 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/>',
     moon: '<path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M20 14.5A9 9 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z"/>',
     auto: '<circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path fill="currentColor" d="M12 3a9 9 0 0 1 0 18V3Z"/>',
-    resume: '<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 3v11m0 0 4-4m-4 4-4-4M5 19h14"/>'
+    resume: '<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 3v11m0 0 4-4m-4 4-4-4M5 19h14"/>',
+    vcard: '<rect x="3" y="6" width="18" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M3 8l9 6 9-6"/>'
   };
 
   function svg(name) { return '<svg viewBox="0 0 24 24" width="16" height="16">' + ICONS[name] + '</svg>'; }
@@ -109,7 +229,7 @@
     var el = document.querySelector(hash);
     if (el) el.scrollIntoView({ behavior: "smooth" });
   }
-  function openUrl(url) { window.open(url, "_blank", "noopener"); }
+  function openUrl(url) { window.open(addUtm(url), "_blank", "noopener"); }
 
   var cmdkGroups = [
     {
@@ -122,7 +242,8 @@
         { label: "Projects", icon: "projects", action: function () { goTo("#projects"); } },
         { label: "Leadership", icon: "leadership", action: function () { goTo("#leadership"); } },
         { label: "Talks & Workshops", icon: "talks", action: function () { goTo("#extras"); } },
-        { label: "Resume", icon: "resume", action: function () { openUrl("assets/resume.pdf"); } }
+        { label: "Resume", icon: "resume", action: function () { openUrl("assets/resume.pdf"); } },
+        { label: "Save Contact (vCard)", icon: "vcard", action: function () { downloadVCard(); } }
       ]
     },
     {
