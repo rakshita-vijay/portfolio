@@ -211,6 +211,77 @@
     });
   }
 
+  // ---- adaptive sidebar lock ----
+  // If the sidebar's content is short enough to fit the viewport, the default
+  // CSS sticky-top (see styles.css) handles everything with zero JS and never
+  // clips anything. If it's taller than the viewport, plain CSS sticky (top OR
+  // bottom) has no way to *defer* engaging until the content has naturally
+  // scrolled into place - it clamps immediately on load. So for that case
+  // only: work out the exact scrollY at which the sidebar's own natural
+  // (unlocked) bottom edge would just reach the viewport's bottom edge - stay
+  // in normal document flow before that point (About/Education), then lock
+  // (fixed) for the rest of the page. Everything needed for that scrollY is
+  // measured once (and on resize/load) rather than every scroll frame, so the
+  // boundary is a fixed number to compare scrollY against - not a live
+  // measurement racing the DOM - which is what removes the flicker. There's
+  // deliberately no separate "release near the footer" state here - that
+  // needed its own live measurement and was the source of every bug in this
+  // feature (including the sidebar reappearing mid-page); two reliable
+  // states beat three flaky ones.
+  var sidebarEl = document.querySelector(".sidebar");
+  var sidebarInnerEl = document.querySelector(".sidebar-inner");
+  if (sidebarEl && sidebarInnerEl) {
+    var sidebarRaf = null;
+    var cachedTop = 0; // sidebar's static top, in page (document) coordinates
+    var cachedLockAt = 0; // scrollY at which the lock should engage
+    var cachedFits = false;
+    var topOffset = 40;
+    var bottomOffset = 24;
+
+    var measureSidebar = function () {
+      var scrollY = window.scrollY || window.pageYOffset;
+      var vh = window.innerHeight;
+      var asideRect = sidebarEl.getBoundingClientRect();
+      var innerH = sidebarInnerEl.getBoundingClientRect().height;
+      cachedTop = asideRect.top + scrollY;
+      cachedFits = innerH <= vh - topOffset - bottomOffset;
+      cachedLockAt = cachedTop + innerH - vh + bottomOffset;
+    };
+
+    var layoutSidebar = function () {
+      sidebarRaf = null;
+      if (window.innerWidth <= 860 || cachedFits) {
+        sidebarInnerEl.removeAttribute("data-mode");
+        sidebarInnerEl.style.left = "";
+        sidebarInnerEl.style.width = "";
+        return;
+      }
+      var scrollY = window.scrollY || window.pageYOffset;
+
+      if (scrollY < cachedLockAt) {
+        sidebarInnerEl.setAttribute("data-mode", "free");
+        sidebarInnerEl.style.left = "";
+        sidebarInnerEl.style.width = "";
+      } else {
+        var asideRect = sidebarEl.getBoundingClientRect();
+        sidebarInnerEl.setAttribute("data-mode", "locked");
+        sidebarInnerEl.style.left = asideRect.left + "px";
+        sidebarInnerEl.style.width = asideRect.width + "px";
+      }
+    };
+    var requestSidebarLayout = function () {
+      if (sidebarRaf === null) sidebarRaf = requestAnimationFrame(layoutSidebar);
+    };
+    var remeasureAndLayout = function () {
+      measureSidebar();
+      layoutSidebar();
+    };
+    remeasureAndLayout();
+    window.addEventListener("scroll", requestSidebarLayout, { passive: true });
+    window.addEventListener("resize", remeasureAndLayout);
+    window.addEventListener("load", remeasureAndLayout);
+  }
+
   // ---- scroll to top ----
   var scrollTopBtn = document.getElementById("scrollTop");
   if (scrollTopBtn) {
