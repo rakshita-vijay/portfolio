@@ -1,0 +1,41 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="rvGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4A6CF7"/>
+      <stop offset="55%" stop-color="#7B5CF0"/>
+      <stop offset="100%" stop-color="#9B4FE0"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="45%" r="60%">
+      <stop offset="0%" stop-color="#2A2050" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="#05060A"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <!-- subtle graph-dot dependency motif -->
+  <g opacity="0.35" stroke="#3B3F63" stroke-width="1.5">
+    <line x1="90" y1="90" x2="220" y2="150"/>
+    <line x1="220" y1="150" x2="180" y2="270"/>
+    <line x1="1000" y1="520" x2="1080" y2="430"/>
+    <line x1="1080" y1="430" x2="1000" y2="340"/>
+  </g>
+  <g fill="#5B6EE8" opacity="0.6">
+    <circle cx="90" cy="90" r="4"/>
+    <circle cx="220" cy="150" r="4"/>
+    <circle cx="180" cy="270" r="4"/>
+    <circle cx="1000" cy="520" r="4"/>
+    <circle cx="1080" cy="430" r="4"/>
+    <circle cx="1000" cy="340" r="4"/>
+  </g>
+
+  <text x="600" y="330" font-family="Georgia, 'Fraunces', serif" font-size="260" font-weight="700"
+        text-anchor="middle" fill="url(#rvGrad)" letter-spacing="4">RV</text>
+
+  <text x="600" y="420" font-family="Arial, sans-serif" font-size="34" font-weight="500"
+        text-anchor="middle" fill="#C7CBDD" letter-spacing="6">RAKSHITA VIJAY</text>
+
+  <text x="600" y="465" font-family="'Courier New', monospace" font-size="21"
+        text-anchor="middle" fill="#7A81A0" letter-spacing="2">CS ENGINEER · AI / ML</text>
+</svg>
