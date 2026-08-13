@@ -33,3 +33,12 @@ Then on vercel.com → **Add New Project** → import the repo → Framework Pre
 - Swap the `href="#"` placeholders in the **GitHub**, **LinkedIn**, and **Download resume** links (top of `index.html`, `<aside class="sidebar">`) for your real profile URLs and a hosted resume PDF link.
 - Double check the phone/email in the sidebar — only email is shown right now; add a phone line the same way as the "Reach" row if you want it public.
 - Swap `assets/rakshita.png` for a higher-res photo if you have one — the one here was pulled straight out of the resume PDF at 200×200.
+
+## Use in venv
+`python3 -m venv .venv`
+`source .venv/bin/activate`
+`python --version`
+`which python`      # macOS/Linux
+<!-- `where python`      # Windows -->
+
+`deactivate`
