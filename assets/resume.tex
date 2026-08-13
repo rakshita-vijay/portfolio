@@ -27,7 +27,7 @@
 \section*{About}
 I'm a third-year Computer Science Engineering student at BITS Pilani, Hyderabad, with a habit of picking projects apart down to the data structure underneath - whether that's a dependency graph deciding the order database objects get migrated in, or a function-call graph deciding whether an Android app is malicious.\\[3pt]
 Most recently I was a Software Engineering Intern in Microsoft's Azure Data Migration team, where I extended an AI-assisted schema-conversion pipeline to handle SQL Server as a source: a topological chunk scheduler, a hybrid regex-plus-LLM translation router, and a fault-tolerant compile-and-retry loop that got \textasciitilde{}97\% of chunks converting without manual intervention. Before that, at CultureVo, I built a multi-agent conversational AI toolkit spanning six personas and four languages.\\[3pt]
-Outside of internships, I prompt-engineer AI-driven tools end to end - a finance tracker with a multi-agent CrewAI insight pipeline, a project-tagging workspace on Next.js and Supabase, an async research-and-ideation pipeline that cut a team's turnaround from five days to one sitting.\\[3pt]
+Outside of internships, I prompt-engineer AI-driven tools end to end - a finance tracker with a Gemini-powered, 2-agent insight pipeline, a project-tagging workspace on Next.js and Supabase, an async research-and-ideation pipeline that cut a team's turnaround from five days to one sitting.\\[3pt]
 When I'm not at a keyboard, I'm usually working a crochet or knitting pattern - a different kind of graph traversal - or buried in a novel, mystery and/or fantasy being my usual picks.\\
 \par\vspace{-5pt}
 \section*{Education}
@@ -41,18 +41,19 @@ CBSE $\cdot$ 94.2\%\\[2pt]
 CBSE $\cdot$ 95.8\%\\[2pt]
 \par\vspace{-5pt}
 \section*{Technical Skills}
-Python, C++, C, Java, SQL, PyTorch, Next.js, React, Supabase, Vercel, CrewAI, Gemini API, Prompt Engineering, Git
+Python, C++, C, Java, SQL, PyTorch, Generative AI, Next.js, React, Supabase, Vercel, Gemini API, Prompt Engineering, Git
 \par\vspace{9pt}
 \section*{Experience}
 \head{Microsoft - Azure Data Migration Team}{May 2026 - Jul 2026}
 \subline{Software Engineering Intern $\cdot$ SQL Server $\rightarrow$ PostgreSQL Schema Conversion Engine}
 \vspace{-8pt}
 \begin{itemize}
-\item Extended an AI-assisted Oracle$\rightarrow$PostgreSQL schema-conversion pipeline to support SQL Server as a source, with dialect-aware gating across a 4-stage Extract$\rightarrow$Chunk$\rightarrow$Convert$\rightarrow$Verify pipeline.
-\item Built a dependency-aware chunk scheduler on Kahn's Algorithm to topologically order database objects, correctly handling cycles and self-referencing edges while upholding ACID transactionality.
-\item Designed a hybrid conversion router splitting mechanical DDL to a regex fast-path and procedural/semantic logic to LLM translation, sharing a canonical identifier map across both paths.
-\item Built a fault-tolerant compile-and-retry loop with auto-retry from compile-error feedback - \textasciitilde{}97\% of chunks converged without manual intervention.
-\item Stress-tested against Northwind, AdventureWorks, WideWorldImporters, and a custom 7-schema database: \textasciitilde{}98\% of in-scope objects across 45+ chunks (600+ objects), cutting runtime from \textasciitilde{}4 hours to 35--45 minutes.
+\item Extended an AI-assisted Oracle$\rightarrow$PostgreSQL schema-conversion pipeline to also support SQL Server as a source, with a near real-time ETL pipeline.
+\item Implemented dialect-aware gating across all 4 stages (Extract$\rightarrow$Chunk$\rightarrow$Convert$\rightarrow$Verify), preserving Oracle behavior and aligning with the PG team.
+\item Built a dependency-aware chunk scheduler on Kahn's Algorithm that topologically orders database objects for conversion - discovering in-scope objects, emitting raw DDL plus a dependency edge graph, and correctly handling cycles and self-referencing edges while upholding ACID transactionality.
+\item Designed a hybrid conversion router that sent mechanical DDL through a deterministic regex fast-path and reserved LLM-based translation for procedural/semantic logic, using few-shot examples and a shared canonical identifier map to keep naming consistent across both paths - optimizing token usage.
+\item Built a fault-tolerant compile-and-retry loop that test-compiles each chunk's DDL, defers cross-chunk dependencies, and auto-retries failures from compile-error feedback - \textasciitilde{}97\% of chunks converged without manual intervention.
+\item Stress-tested end-to-end against real-world corpora (Northwind, AdventureWorks, WideWorldImporters) plus a custom 7-schema database: \textasciitilde{}98\% of in-scope objects converted across 45+ chunks (600+ objects with dependencies), cutting runtime from \textasciitilde{}4 hours to 35--45 minutes (\textasciitilde{}83\% reduction), correctly identifying and excluding known out-of-scope objects via the fix-loop.
 \end{itemize}
 \par\vspace{9pt}
 \head{CultureVo}{May 2025 - Jul 2025}
@@ -68,28 +69,28 @@ Python, C++, C, Java, SQL, PyTorch, Next.js, React, Supabase, Vercel, CrewAI, Ge
 \subline{Cybersecurity $\cdot$ Graph ML}
 \vspace{-8pt}
 \begin{itemize}
-\item Built an end-to-end malware classification pipeline extracting Function Call Graphs via Androguard and training GraphSAGE models to distinguish benign from malicious Android apps.
+\item Built an end-to-end malware classification pipeline extracting Function Call Graphs (FCGs) via Androguard and training GraphSAGE models to distinguish benign from malicious Android apps.
 \item Designed an API-aware, structure-preserving graph pruning technique that removes low-signal non-API methods via weighted edge rewiring.
-\item Integrated pretrained Skip-Gram node embeddings with checkpoint-based training for resumable HPC runs.
+\item Integrated pretrained Skip-Gram node embeddings for graph preprocessing/serialization on HPC, with checkpoint-based training for resumable runs.
 \item Achieved a 94.39\% F1-score and 92.41\% accuracy on an imbalanced dataset of 150K benign and 50K malicious samples.
 \end{itemize}
 \par\vspace{9pt}
-\head{Finance Tracker \& Analyser \normalfont{\small(Next.js, CrewAI, Vercel)}}{Jun 2025 - Jul 2025}
+\head{Finance Tracker \& Analyser \normalfont{\small(Next.js, Gemini 3.5 Flash, Vercel)}}{Jun 2025 - Jul 2025}
 \subline{AI-Driven Financial Analytics}
 \vspace{-8pt}
 \begin{itemize}
-\item Designed a multi-format analysis and report-generation service backed by a 2-agent pipeline for automated insight generation, since restored to a fuller multi-agent CrewAI pipeline with live per-stage timers.
-\item Implemented real-time budget tracking with configurable spending categories and an AI-driven recovery-strategy module.
-\item Built a rules-based anomaly-detection service that flags inconsistencies in uploaded statement data.
+\item Designed a multi-format analysis and report-generation service using Gemini 3.5 Flash, backed by a 2-agent pipeline for automated insight generation.
+\item Implemented real-time budget tracking with configurable spending categories, plus an AI-driven module for recovery-strategy suggestions.
+\item Built a rules-based anomaly-detection service that processes uploaded statement data and flags inconsistencies for user review.
 \end{itemize}
 \par\vspace{9pt}
 \head{Automated Research \& Ideation Pipeline \normalfont{\small(Python, asyncio, Multi-Agent)}}{Jun 2025}
 \subline{Multi-Agent Systems $\cdot$ Async Automation}
 \vspace{-8pt}
 \begin{itemize}
-\item Designed a 5-agent orchestration workflow automating topic selection, research, and outline generation with shared agent state.
-\item Implemented concurrent agents over Python asyncio to generate 7 niche titles per theme, each with sourced research summaries and outline guides.
-\item Cut research-and-ideation turnaround by \textasciitilde{}80\% (5 days $\rightarrow$ 1 session); adopted as the team's standard ideation tool.
+\item Designed a 5-agent orchestration workflow to automate topic selection, research, and outline generation, coordinating task handoffs and shared agent state.
+\item Implemented concurrent agents over Python asyncio to generate 7 niche titles per theme, each with research summaries, sources, and article outline guides.
+\item Cut research-and-ideation turnaround by \textasciitilde{}80\% (5 days $\rightarrow$ 1 session) with compiled, referenced sources; adopted as the team's standard ideation tool.
 \end{itemize}
 \par\vspace{9pt}
 \head{Tag Atlas \normalfont{\small(Next.js, Supabase, Gemini)}}{Personal project}
@@ -105,11 +106,11 @@ Python, C++, C, Java, SQL, PyTorch, Next.js, React, Supabase, Vercel, CrewAI, Ge
 \subline{Content \& Research Team Co-Lead, Junior Office \& Chair, Senior Office}
 \vspace{-8pt}
 \begin{itemize}
-\item Authored 5+ technical articles for the ACM BPHC Blog and The BITSian Gazette (Aug--Nov '24 edition).
-\item Coordinated logistics as Point of Contact for 4 tech events, including a coding workshop for 70+ indigent students.
+\item Authored 5+ technical articles for the ACM BPHC Blog and The BITSian Gazette, BITS Hyderabad's official magazine (Aug--Nov '24 edition).
+\item Conducted and coordinated logistics as Point of Contact for 4 tech events, including a coding workshop for 70+ indigent students.
 \end{itemize}
 \par\vspace{9pt}
-\head{ELAS, BPHC}{Dec 2024 - Jan 2025}
+\head{English Language Activities' Society (ELAS), BPHC}{Dec 2024 - Jan 2025}
 \subline{ARG Team Lead, Verba Maximus '25}
 \vspace{-8pt}
 \begin{itemize}
@@ -118,7 +119,7 @@ Python, C++, C, Java, SQL, PyTorch, Next.js, React, Supabase, Vercel, CrewAI, Ge
 \par\vspace{9pt}
 \section*{Talks \& Workshops}
 \head{Introduction to Machine Learning}{Aug 2025}
-\subline{Organized by ACM - BPHC Chapter}
+\subline{Organized by Association of Computing Machinery - BPHC Chapter}
 \vspace{-8pt}
 \begin{itemize}
 \item Co-hosted a 250+ attendee workshop covering supervised/unsupervised learning, regression, neural networks, and activation functions with live coding.
