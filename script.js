@@ -49,7 +49,7 @@
   if (timeEl) {
     var tz = timeEl.getAttribute("data-tz") || "Asia/Kolkata";
     var fmt = new Intl.DateTimeFormat("en-US", {
-      timeZone: tz, hour: "numeric", minute: "2-digit", hour12: true
+      timeZone: tz, hour: "numeric", minute: "2-digit", second: "2-digit", hour12: true
     });
     function tick() { timeEl.textContent = fmt.format(new Date()); }
     tick();
