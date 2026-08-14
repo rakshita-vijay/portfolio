@@ -131,7 +131,7 @@
               <svg viewBox="0 0 24 24" width="12" height="12"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 7h18v12H3zM8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
               Now
             </span>
-            <span class="meta-value">SWE Intern, Azure Data&nbsp;Migration @ Microsoft</span>
+            <span class="meta-value">Former SWE Intern, Azure Data&nbsp;Migration @ Microsoft</span>
           </div>
           <div class="meta-row">
             <span class="meta-label">
@@ -211,20 +211,19 @@
       <section id="about" class="section">
         <h2 class="section-title"><span class="section-eyebrow">01</span>About</h2>
         <div class="prose">
-          <p>I'm a third-year Computer Science Engineering student at BITS Pilani, Hyderabad, with a habit of picking
-            projects apart down to the data structure underneath - whether that's a dependency graph deciding the
-            order database objects get migrated in, or a function-call graph deciding whether an Android app is
-            malicious.</p>
-          <p>Most recently I was a Software Engineering Intern in Microsoft's Azure Data Migration team, where I
-            extended an AI-assisted schema-conversion pipeline to handle SQL Server as a source: a topological chunk
-            scheduler, a hybrid regex-plus-LLM translation router, and a fault-tolerant compile-and-retry loop that got
-            ~97% of chunks converting without manual intervention. Before that, at CultureVo, I built a multi-agent
-            conversational AI toolkit spanning six personas and four languages.</p>
-          <p>Outside of internships, I prompt-engineer AI-driven tools end to end - a finance tracker with a
-            Gemini-powered, 2-agent insight pipeline, a project-tagging workspace on Next.js and Supabase, an async
-            research-and-ideation pipeline that cut a team's turnaround from five days to one sitting.</p>
-          <p>When I'm not at a keyboard, I'm usually working a crochet or knitting pattern - a different kind of
-            graph traversal - or buried in a novel, mystery and/or fantasy being my usual picks.</p>
+          <p>I'm a third-year Computer Science Engineering student at BITS Pilani, Hyderabad, with a habit of picking projects
+            apart down to the data structure underneath.</p>
+          <p>I've interned at Microsoft and CultureVo, and built independent projects spanning graph neural networks,
+            multi-agent AI systems, and full-stack apps. These experiences taught me how to build systems that hold up under
+            real constraints - correctness, scale, and users who depend on them working.</p>
+          <p>I served as my school's valedictorian, which fostered a habit of leading from the front early on. That's carried
+            into college, where I've been an active member of my department and taken on organizing roles across multiple clubs
+            and committees.</p>
+          <p>Outside of internships, I love playing table tennis and cycling, working on a crochet pattern, or getting lost in
+            a mystery or fantasy novel.</p>
+          <p>Right now, I'm focused on deepening my grasp of the systems underneath the AI layer - data pipelines, backend
+            infrastructure, distributed systems - and I'm looking for SDE and applied ML roles where I can keep taking things
+            apart to understand how they hold together.</p>
         </div>
       </section>
 
@@ -254,7 +253,7 @@
             <h3>St. John's Public School</h3>
             <span class="entry-period">Class XII &middot; 2023</span>
           </div>
-          <p class="entry-sub">CBSE &middot; 94.2%</p>
+          <p class="entry-sub">CBSE &middot; 94.2% &middot; Valedictorian</p>
         </div>
         <div class="entry">
           <div class="entry-head">
@@ -316,6 +315,8 @@
               with dependencies), cutting runtime from ~4 hours to 35–45 minutes (~83% reduction), correctly
               identifying and excluding known out-of-scope objects via the fix-loop.</li>
           </ul>
+          <div class="tag-row"><span class="tag">Python</span><span class="tag">PostgreSQL</span><span
+              class="tag">SQL Server</span><span class="tag">Prompt Engineering</span></div>
         </article>
 
         <article class="entry">
@@ -333,6 +334,8 @@
             <li>Implemented persistent, multi-session conversation state across four languages (English, Sinhala, Tamil,
               Hindi), enabling bulk generation of 100+ Q&amp;A pairs.</li>
           </ul>
+          <div class="tag-row"><span class="tag">Multi-Agent</span><span class="tag">Persona System</span><span
+              class="tag">Multilingual</span></div>
         </article>
 
       </section>
@@ -357,7 +360,7 @@
               samples.</li>
           </ul>
           <div class="tag-row"><span class="tag">GraphSAGE</span><span class="tag">Androguard</span><span
-              class="tag">PyTorch</span></div>
+              class="tag">PyTorch</span><span class="tag">Skip-Gram</span></div>
           <div class="project-links">
             <a class="proj-btn" href="https://github.com/rakshita-vijay/bphc-malware-analysis" target="_blank"
               rel="noopener">
@@ -385,7 +388,7 @@
               inconsistencies for user review.</li>
           </ul>
           <div class="tag-row"><span class="tag">Next.js</span><span class="tag">Gemini 3.5 Flash</span><span
-              class="tag">Vercel</span></div>
+              class="tag">Vercel</span><span class="tag">Multi-Agent</span></div>
           <div class="project-links">
             <a class="proj-btn" href="https://github.com/rakshita-vijay/finance-tracker-vercel-app" target="_blank"
               rel="noopener">
@@ -449,9 +452,15 @@
           </div>
           <p class="entry-sub">Project write-up storage &amp; tagging tool</p>
           <ul class="bullet-list">
-            <li>Sidebar-plus-detail-panel workspace for storing and tagging project write-ups, with tag-based similarity
-              ranking and an archive flow.</li>
-            <li>AI-assisted tag suggestions via Gemini, password auth, and bulk project-insertion tooling.</li>
+            <li>Built a self-hosted project-writeup archive, turning unstructured project history into a searchable, taggable
+              board indexed by clickable tags instead of manual file hunting.</li>
+            <li>Engineered a fuzzy markdown parser (Levenshtein-distance + token-similarity header matching) that converts
+              arbitrary .md/.txt uploads into structured project fields, with heuristic detection that auto-splits
+              multi-project files into individual drafts.</li>
+            <li>Built a two-endpoint AI tagging system on the Gemini API using structured JSON prompting to recommend tags per
+              project and cluster/merge near-duplicate tags board-wide.</li>
+            <li>Implemented a live tag-based ranking algorithm that re-sorts projects client-side by selected-tag overlap on
+              every click, with instant results and no server round-trip.</li>
           </ul>
           <div class="tag-row"><span class="tag">Next.js</span><span class="tag">Supabase</span><span
               class="tag">Gemini</span></div>
@@ -481,7 +490,7 @@
 
         <article class="entry">
           <div class="entry-head">
-            <h3>ACM - BPHC Chapter</h3>
+            <h3>Association for Computing Machinery (ACM) - BPHC Chapter</h3>
             <span class="entry-period">Nov 2024 - Jul 2026</span>
           </div>
           <p class="entry-sub">Content &amp; Research Team Co-Lead, Junior Office &amp; Chair, Senior Office</p>
@@ -495,10 +504,10 @@
 
         <article class="entry">
           <div class="entry-head">
-            <h3>ELAS, BPHC</h3>
+            <h3>English Language Activities' Society (ELAS), BPHC</h3>
             <span class="entry-period">Dec 2024 - Jan 2025</span>
           </div>
-          <p class="entry-sub">ARG Team Lead, Verba Maximus '25 &middot; English Language Activities' Society (ELAS)</p>
+          <p class="entry-sub">ARG Team Lead, Verba Maximus '25</p>
           <ul class="bullet-list">
             <li>Led a 13-member team to design and execute a 6-hour event that drew 125+ participants - the
               highest-footfall headliner event at VM '25.</li>

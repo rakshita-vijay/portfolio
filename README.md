@@ -42,7 +42,7 @@ python3 --version
 which python3      # macOS/Linux
 # where python      # Windows
 
-python -m pip install -r requirements.txt
+python3 -m pip install -r requirements.txt
 
 deactivate
 ```

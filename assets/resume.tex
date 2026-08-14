@@ -25,17 +25,18 @@
 \end{center}
 \vspace{-4pt}
 \section*{About}
-I'm a third-year Computer Science Engineering student at BITS Pilani, Hyderabad, with a habit of picking projects apart down to the data structure underneath - whether that's a dependency graph deciding the order database objects get migrated in, or a function-call graph deciding whether an Android app is malicious.\\[3pt]
-Most recently I was a Software Engineering Intern in Microsoft's Azure Data Migration team, where I extended an AI-assisted schema-conversion pipeline to handle SQL Server as a source: a topological chunk scheduler, a hybrid regex-plus-LLM translation router, and a fault-tolerant compile-and-retry loop that got \textasciitilde{}97\% of chunks converting without manual intervention. Before that, at CultureVo, I built a multi-agent conversational AI toolkit spanning six personas and four languages.\\[3pt]
-Outside of internships, I prompt-engineer AI-driven tools end to end - a finance tracker with a Gemini-powered, 2-agent insight pipeline, a project-tagging workspace on Next.js and Supabase, an async research-and-ideation pipeline that cut a team's turnaround from five days to one sitting.\\[3pt]
-When I'm not at a keyboard, I'm usually working a crochet or knitting pattern - a different kind of graph traversal - or buried in a novel, mystery and/or fantasy being my usual picks.\\
+I'm a third-year Computer Science Engineering student at BITS Pilani, Hyderabad, with a habit of picking projects apart down to the data structure underneath.\\[3pt]
+I've interned at Microsoft and CultureVo, and built independent projects spanning graph neural networks, multi-agent AI systems, and full-stack apps. These experiences taught me how to build systems that hold up under real constraints - correctness, scale, and users who depend on them working.\\[3pt]
+I served as my school's valedictorian, which fostered a habit of leading from the front early on. That's carried into college, where I've been an active member of my department and taken on organizing roles across multiple clubs and committees.\\[3pt]
+Outside of internships, I love playing table tennis and cycling, working on a crochet pattern, or getting lost in a mystery or fantasy novel.\\[3pt]
+Right now, I'm focused on deepening my grasp of the systems underneath the AI layer - data pipelines, backend infrastructure, distributed systems - and I'm looking for SDE and applied ML roles where I can keep taking things apart to understand how they hold together.\\
 \par\vspace{-5pt}
 \section*{Education}
 \head{BITS Pilani, Hyderabad Campus}{2023 - 2027}
 B.E. Computer Science Engineering $\cdot$ CGPA 8.64\\[2pt]
 \par\vspace{-5pt}
 \head{St. John's Public School}{Class XII $\cdot$ 2023}
-CBSE $\cdot$ 94.2\%\\[2pt]
+CBSE $\cdot$ 94.2\% $\cdot$ Valedictorian\\[2pt]
 \par\vspace{-5pt}
 \head{Chettinad Vidyashram}{Class X $\cdot$ 2021}
 CBSE $\cdot$ 95.8\%\\[2pt]
@@ -44,7 +45,7 @@ CBSE $\cdot$ 95.8\%\\[2pt]
 Python, C++, C, Java, SQL, PyTorch, Generative AI, Next.js, React, Supabase, Vercel, Gemini API, Prompt Engineering, Git
 \par\vspace{9pt}
 \section*{Experience}
-\head{Microsoft - Azure Data Migration Team}{May 2026 - Jul 2026}
+\head{Microsoft - Azure Data Migration Team \normalfont{\small(Python, PostgreSQL, SQL Server, Prompt Engineering)}}{May 2026 - Jul 2026}
 \subline{Software Engineering Intern $\cdot$ SQL Server $\rightarrow$ PostgreSQL Schema Conversion Engine}
 \vspace{-8pt}
 \begin{itemize}
@@ -56,7 +57,7 @@ Python, C++, C, Java, SQL, PyTorch, Generative AI, Next.js, React, Supabase, Ver
 \item Stress-tested end-to-end against real-world corpora (Northwind, AdventureWorks, WideWorldImporters) plus a custom 7-schema database: \textasciitilde{}98\% of in-scope objects converted across 45+ chunks (600+ objects with dependencies), cutting runtime from \textasciitilde{}4 hours to 35--45 minutes (\textasciitilde{}83\% reduction), correctly identifying and excluding known out-of-scope objects via the fix-loop.
 \end{itemize}
 \par\vspace{9pt}
-\head{CultureVo}{May 2025 - Jul 2025}
+\head{CultureVo \normalfont{\small(Multi-Agent, Persona System, Multilingual)}}{May 2025 - Jul 2025}
 \subline{Summer Intern $\cdot$ Conversational AI Tools}
 \vspace{-8pt}
 \begin{itemize}
@@ -65,7 +66,7 @@ Python, C++, C, Java, SQL, PyTorch, Generative AI, Next.js, React, Supabase, Ver
 \end{itemize}
 \par\vspace{9pt}
 \section*{Projects}
-\head{Android Malware Detection with GNNs \normalfont{\small(GraphSAGE, Androguard, PyTorch)}}{Jan 2026 - May 2026}
+\head{Android Malware Detection with GNNs \normalfont{\small(GraphSAGE, Androguard, PyTorch, Skip-Gram)}}{Jan 2026 - May 2026}
 \subline{Cybersecurity $\cdot$ Graph ML}
 \vspace{-8pt}
 \begin{itemize}
@@ -75,7 +76,7 @@ Python, C++, C, Java, SQL, PyTorch, Generative AI, Next.js, React, Supabase, Ver
 \item Achieved a 94.39\% F1-score and 92.41\% accuracy on an imbalanced dataset of 150K benign and 50K malicious samples.
 \end{itemize}
 \par\vspace{9pt}
-\head{Finance Tracker \& Analyser \normalfont{\small(Next.js, Gemini 3.5 Flash, Vercel)}}{Jun 2025 - Jul 2025}
+\head{Finance Tracker \& Analyser \normalfont{\small(Next.js, Gemini 3.5 Flash, Vercel, Multi-Agent)}}{Jun 2025 - Jul 2025}
 \subline{AI-Driven Financial Analytics}
 \vspace{-8pt}
 \begin{itemize}
@@ -97,12 +98,14 @@ Python, C++, C, Java, SQL, PyTorch, Generative AI, Next.js, React, Supabase, Ver
 \subline{Project write-up storage \& tagging tool}
 \vspace{-8pt}
 \begin{itemize}
-\item Sidebar-plus-detail-panel workspace for storing and tagging project write-ups, with tag-based similarity ranking and an archive flow.
-\item AI-assisted tag suggestions via Gemini, password auth, and bulk project-insertion tooling.
+\item Built a self-hosted project-writeup archive, turning unstructured project history into a searchable, taggable board indexed by clickable tags instead of manual file hunting.
+\item Engineered a fuzzy markdown parser (Levenshtein-distance + token-similarity header matching) that converts arbitrary .md/.txt uploads into structured project fields, with heuristic detection that auto-splits multi-project files into individual drafts.
+\item Built a two-endpoint AI tagging system on the Gemini API using structured JSON prompting to recommend tags per project and cluster/merge near-duplicate tags board-wide.
+\item Implemented a live tag-based ranking algorithm that re-sorts projects client-side by selected-tag overlap on every click, with instant results and no server round-trip.
 \end{itemize}
 \par\vspace{9pt}
 \section*{Leadership}
-\head{ACM - BPHC Chapter}{Nov 2024 - Jul 2026}
+\head{Association for Computing Machinery (ACM) - BPHC Chapter}{Nov 2024 - Jul 2026}
 \subline{Content \& Research Team Co-Lead, Junior Office \& Chair, Senior Office}
 \vspace{-8pt}
 \begin{itemize}
@@ -110,8 +113,8 @@ Python, C++, C, Java, SQL, PyTorch, Generative AI, Next.js, React, Supabase, Ver
 \item Conducted and coordinated logistics as Point of Contact for 4 tech events, including a coding workshop for 70+ indigent students.
 \end{itemize}
 \par\vspace{9pt}
-\head{ELAS, BPHC}{Dec 2024 - Jan 2025}
-\subline{ARG Team Lead, Verba Maximus '25 $\cdot$ English Language Activities' Society (ELAS)}
+\head{English Language Activities' Society (ELAS), BPHC}{Dec 2024 - Jan 2025}
+\subline{ARG Team Lead, Verba Maximus '25}
 \vspace{-8pt}
 \begin{itemize}
 \item Led a 13-member team to design and execute a 6-hour event that drew 125+ participants - the highest-footfall headliner event at VM '25.
