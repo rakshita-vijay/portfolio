@@ -95,180 +95,101 @@ def build_tex(data: dict) -> str:
     name = esc(data["name"])
     meta = data["meta"]
     email = ""
-    phone = ""
+    email_link = None
     for label, val in meta.items():
         if label.lower() == "reach":
             email = val
-        if label.lower() == "phone":
-            phone = val
+    # pull the real mailto href for a clickable link
+    reach_href = None
+    # (kept simple: display text is enough for a resume header)
 
-    # contact line: phone | email | linkedin | github ... (Jake's-template style,
-    # each piece underlined/clickable, separated by "$|$")
-    contact_pieces = []
-    if phone:
-        contact_pieces.append(esc(phone))
-    if email:
-        contact_pieces.append(f"\\href{{mailto:{email}}}{{\\underline{{{esc(email)}}}}}")
-    for s in data["socials"]:
-        if s.get("href"):
-            contact_pieces.append(f"\\href{{{s['href']}}}{{\\underline{{{esc(s['label'])}}}}}")
-    contact_line = " $|$ ".join(contact_pieces)
+    location = meta.get("Based", "")
+    studying = meta.get("Studying", "")
+
+    social_line = " \\quad $\\vert$ \\quad ".join(
+        f"\\href{{{s['href']}}}{{{esc(s['label'])}}}" for s in data["socials"] if s.get("href")
+    )
 
     header = r"""
 \begin{center}
-    \textbf{\Huge \scshape """ + name + r"""} \\ \vspace{1pt}
-    \small """ + contact_line + r"""
+{\Huge \scshape """ + name + r"""} \\ \vspace{4pt}
+""" + esc(location) + (r" \quad $\vert$ \quad " + esc(email) if email else "") + r""" \\
+""" + social_line + r"""
 \end{center}
 """
 
     def section(title):
-        return f"\n\\section{{{esc(title)}}}\n"
+        return f"\n\\section*{{{esc(title)}}}\n\\vspace{{-4pt}}\n"
 
-    def subheading_entry(e):
-        """Education / Experience / Leadership / Extras — two-line heading + bullets."""
-        out = "\\resumeSubheading\n"
-        out += f"      {{{esc(e['title'])}}}{{{esc(e['period'])}}}\n"
-        out += f"      {{{esc(e['sub'])}}}{{}}\n"
+    def entry_block(e, show_tags=False):
+        out = "\\resumeEntry\n"
+        out += f"{{{esc(e['title'])}}}{{{esc(e['period'])}}}{{{esc(e['sub'])}}}\n"
         if e["bullets"]:
-            out += "      \\resumeItemListStart\n"
+            out += "\\begin{itemize}[leftmargin=*, itemsep=0pt, topsep=2pt]\n"
             for b in e["bullets"]:
-                out += f"        \\resumeItem{{{esc(b)}}}\n"
-            out += "      \\resumeItemListEnd\n"
-        return out
-
-    def project_entry(e):
-        """Projects — single heading line (name | tech stack) + bullets."""
-        heading_left = f"\\textbf{{{esc(e['title'])}}}"
-        if e["tags"]:
-            heading_left += f" $|$ \\emph{{{esc(', '.join(e['tags']))}}}"
-        out = "\\resumeProjectHeading\n"
-        out += f"      {{{heading_left}}}{{{esc(e['period'])}}}\n"
-        if e["bullets"]:
-            out += "      \\resumeItemListStart\n"
-            for b in e["bullets"]:
-                out += f"        \\resumeItem{{{esc(b)}}}\n"
-            out += "      \\resumeItemListEnd\n"
+                out += f"  \\item {esc(b)}\n"
+            out += "\\end{itemize}\n"
+        if show_tags and e["tags"]:
+            out += f"\\textit{{\\small {esc(', '.join(e['tags']))}}}\\\\[4pt]\n"
         return out
 
     body = header
 
     if data["about"]:
         body += section("Summary")
-        body += "\\small{" + esc(data["about"][0])
+        body += esc(data["about"][0]) + "\n"  # first paragraph only — resumes stay tight
         if len(data["about"]) > 1:
-            body += " " + esc(data["about"][1])
-        body += "}\n\\vspace{-4pt}\n"
+            body += " " + esc(data["about"][1]) + "\n"
 
     if data["education"]:
         body += section("Education")
-        body += "  \\resumeSubHeadingListStart\n"
         for e in data["education"]:
-            body += subheading_entry(e)
-        body += "  \\resumeSubHeadingListEnd\n"
-
-    if data["experience"]:
-        body += section("Experience")
-        body += "  \\resumeSubHeadingListStart\n"
-        for e in data["experience"]:
-            body += subheading_entry(e)
-        body += "  \\resumeSubHeadingListEnd\n"
-
-    if data["projects"]:
-        body += section("Projects")
-        body += "  \\resumeSubHeadingListStart\n"
-        for e in data["projects"]:
-            body += project_entry(e)
-        body += "  \\resumeSubHeadingListEnd\n"
-
-    if data["leadership"]:
-        body += section("Leadership")
-        body += "  \\resumeSubHeadingListStart\n"
-        for e in data["leadership"]:
-            body += subheading_entry(e)
-        body += "  \\resumeSubHeadingListEnd\n"
-
-    if data["extras"]:
-        body += section("Talks \\& Workshops")
-        body += "  \\resumeSubHeadingListStart\n"
-        for e in data["extras"]:
-            body += subheading_entry(e)
-        body += "  \\resumeSubHeadingListEnd\n"
+            body += entry_block(e)
 
     if data["stack"]:
         body += section("Technical Skills")
-        body += "  \\begin{itemize}[leftmargin=0.15in, label={}]\n"
-        body += f"    \\small{{\\item{{\\textbf{{Skills}}{{: {esc(', '.join(data['stack']))}}}}}}}\n"
-        body += "  \\end{itemize}\n"
+        body += esc(", ".join(data["stack"])) + "\n"
+
+    if data["experience"]:
+        body += section("Experience")
+        for e in data["experience"]:
+            body += entry_block(e)
+
+    if data["projects"]:
+        body += section("Projects")
+        for e in data["projects"]:
+            body += entry_block(e, show_tags=True)
+
+    if data["leadership"]:
+        body += section("Leadership")
+        for e in data["leadership"]:
+            body += entry_block(e)
+
+    if data["extras"]:
+        body += section("Talks \\& Workshops")
+        for e in data["extras"]:
+            body += entry_block(e)
 
     preamble = r"""
-\documentclass[letterpaper,11pt]{article}
-
-\usepackage{latexsym}
-\usepackage[empty]{fullpage}
+\documentclass[10.5pt, letterpaper]{article}
+\usepackage[left=0.75in, right=0.75in, top=0.6in, bottom=0.6in]{geometry}
 \usepackage{titlesec}
-\usepackage{marvosym}
-\usepackage[usenames,dvipsnames]{color}
-\usepackage{verbatim}
 \usepackage{enumitem}
-\usepackage[hidelinks]{hyperref}
-\usepackage{fancyhdr}
-\usepackage[english]{babel}
+\usepackage{hyperref}
+\usepackage{xcolor}
 \usepackage{tabularx}
-\input{glyphtounicode}
+\usepackage[T1]{fontenc}
+\pagestyle{empty}
+\definecolor{headergray}{RGB}{60,60,60}
+\titleformat{\section}{\large\scshape\raggedright\color{headergray}}{}{0em}{}[\titlerule]
+\titlespacing*{\section}{0pt}{10pt}{6pt}
+\hypersetup{colorlinks=true, urlcolor=headergray, linkcolor=headergray}
+\setlength{\parindent}{0pt}
 
-\pagestyle{fancy}
-\fancyhf{}
-\fancyfoot{}
-\renewcommand{\headrulewidth}{0pt}
-\renewcommand{\footrulewidth}{0pt}
-
-\addtolength{\oddsidemargin}{-0.5in}
-\addtolength{\evensidemargin}{-0.5in}
-\addtolength{\textwidth}{1in}
-\addtolength{\topmargin}{-.5in}
-\addtolength{\textheight}{1.0in}
-
-\urlstyle{same}
-
-\raggedbottom
-\raggedright
-\setlength{\tabcolsep}{0in}
-
-\titleformat{\section}{
-  \vspace{-4pt}\scshape\raggedright\large
-}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
-
-\pdfgentounicode=1
-
-\newcommand{\resumeItem}[1]{
-  \item\small{
-    #1 \vspace{-2pt}
-  }
+\newcommand{\resumeEntry}[3]{%
+  \noindent\textbf{#1} \hfill \textit{#2} \\
+  \textit{\small #3} \\[2pt]
 }
-
-\newcommand{\resumeSubheading}[4]{
-  \vspace{-2pt}\item
-    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-      \textbf{#1} & #2 \\
-      \textit{\small#3} & \textit{\small #4} \\
-    \end{tabular*}\vspace{-7pt}
-}
-
-\newcommand{\resumeProjectHeading}[2]{
-    \item
-    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-      \small#1 & #2 \\
-    \end{tabular*}\vspace{-7pt}
-}
-
-\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
-
-\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
-
-\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
-\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
-\newcommand{\resumeItemListStart}{\begin{itemize}}
-\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
 
 \begin{document}
 """

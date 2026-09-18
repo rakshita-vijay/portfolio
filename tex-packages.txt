@@ -1,0 +1,6 @@
+titlesec
+marvosym
+fancyhdr
+enumitem
+tools
+collection-fontsrecommended

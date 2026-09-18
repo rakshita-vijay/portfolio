@@ -46,3 +46,13 @@ python3 -m pip install -r requirements.txt
 
 deactivate
 ```
+
+## LaTeX setup (system-level, outside the venv)
+```bash
+brew bundle                          # installs basictex from Brewfile
+# open a new terminal
+which pdflatex                       # sanity check — should print /Library/TeX/texbin/pdflatex
+
+sudo tlmgr update --self
+sudo tlmgr install $(cat tex-packages.txt)
+```
